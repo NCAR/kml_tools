@@ -45,24 +45,24 @@ struct angle_units
 template <typename T>
 struct radians : public angle_units< radians, T >
 {
-  static const T circle = 2*M_PI;
-  static const T origin = 0;
+  static constexpr T circle = 2*M_PI;
+  static constexpr T origin = 0;
 };
 
 template <typename T>
 struct heading_degrees : public angle_units< heading_degrees, T >
 {
   typedef T value_type;
-  static const T circle = 360;
-  static const T origin = 0;
+  static constexpr T circle = 360;
+  static constexpr T origin = 0;
 };
 
 template <typename T>
 struct longitude_degrees : public angle_units< longitude_degrees, T >
 {
   typedef T value_type;
-  static const T circle = 360;
-  static const T origin = -180;
+  static constexpr T circle = 360;
+  static constexpr T origin = -180;
 };
 
 
@@ -71,8 +71,8 @@ struct longitude_positive_degrees :
   public angle_units< longitude_positive_degrees, T >
 {
   typedef T value_type;
-  static const T circle = 360;
-  static const T origin = 0;
+  static constexpr T circle = 360;
+  static constexpr T origin = 0;
 };
 
 
