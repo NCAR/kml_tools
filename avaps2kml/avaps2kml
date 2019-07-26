@@ -14,7 +14,7 @@ set host=`hostname -s`
 
 if $host == 'acserver' then
   echo 'Onboard'
-  set inputdir='/mnt/r1/dropsondes/'
+  set inputdir='/var/r1/dropsondes/'
   set outputdir='/var/www/html/flight_data/GE/'
 else
   echo 'Ground'
