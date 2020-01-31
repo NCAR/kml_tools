@@ -7,7 +7,7 @@ from raf.actrack import OSM
 import json
 import os
 
-_netcdffile = os.path.expandvars("$DATA_DIR/HIPPO/HIPPO-2rf06.nc")
+_netcdffile = os.path.expandvars("$DATA_DIR/HIPPO-2rf06.nc")
 
 def test_open_and_save():
     config = Config()
@@ -27,11 +27,11 @@ def test_osm():
     track = driver.getTrack()
     osm = OSM()
     pos = json.loads(osm.formatPositionJSON(track, -1))
-    assert(float(pos['head']) == 41.8)
-    assert(float(pos['lon']) == 172.529541)
+    assert(float(pos['head']) == 41.7)
+    assert(float(pos['lon']) == 172.530746)
 
     # Now just check all of the points...
-    for i in xrange(0, track.npoints()):
+    for i in range(0, track.npoints()):
         pos = json.loads(osm.formatPositionJSON(track, i))
         head = float(pos['head'])
         if not (0 <= head < 360.0):

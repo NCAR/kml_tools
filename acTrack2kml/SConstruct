@@ -41,8 +41,8 @@ rootenv = env
 # ----------------------------------------------------------------------------
 
 env = env.Clone()
-env.MergeFlags('!python-config --includes')
-env.Append(LIBS=['boost_python', libactrackpub])
+env.Append(LIBS=[libactrackpub])
+env.Require('boost_python')
 env.Require('actrack')
 
 module = env.SharedLibrary(env.File('raf/actrack/_actrack.so'), 
@@ -53,11 +53,6 @@ module = env.SharedLibrary(env.File('raf/actrack/_actrack.so'),
 # library.
 env.Depends(module, libactrackpub)
 pysrcs = Split("raf/actrack/__init__.py")
-tests = Split("raf/actrack/test_actrack.py")
-
-# test_actrack.py needs DATA_DIR to find test data
-env['ENV']['DATA_DIR'] = os.environ['DATA_DIR']
-runtest = env.TestRun('pytests', tests+module+pysrcs, "py.test ${SOURCE}")
 
 # ----------------------------------------------------------------------------
 # Testing
@@ -88,8 +83,8 @@ if env.Detect('scan-build') and os.environ.get('CC', "").endswith('analyzer'):
                                                     duplicate=1)
 
 dfcache = env.DataFileCache()
-dfcache.setPrefix('rafdata:/scr/raf_data')
-dfcache.insertCachePath('~/Data/raf/Prod_Data')
+dfcache.setPrefix('rafdata:/scr/raf_data/test_data')
+dfcache.insertCachePath('~/Data/raf/test_data')
 
 # Generate KML from a netcdf file.
 def NetcdfKML(target, source, env):
@@ -111,8 +106,7 @@ def kml_emitter(source, target, env):
 
 env['BUILDERS']['NetcdfKML'] = Builder(action=NetcdfKML, emitter=kml_emitter)
 
-
-hippopath = env.DownloadDataFile('HIPPO/HIPPO-2rf06.nc')
+hippopath = env.DownloadDataFile('HIPPO-2rf06.nc')
 ekml = 'expected/HIPPO-2rf06.kml'
 ejson = 'expected/HIPPO-2rf06.json'
 akml = 'kml/HIPPO-2rf06.kml'
@@ -130,6 +124,13 @@ gtests = tenv.Program('gtests', ["test_track.cc"])
 
 env.Alias('test', env.Command('gtest', gtests,
                               env.AsanFilter("${SOURCE.abspath}")))
+
+# test_actrack.py uses HIPPO-2rf06.nc, so make sure it is in the data file
+# cache and pass the path to it in DATA_DIR.
+env['ENV']['DATA_DIR'] = hippopath.dir.get_abspath()
+runtest = env.TestRun('pytests',
+                      ["raf/actrack/test_actrack.py"] + module + pysrcs +
+                      [hippopath], "py.test ${SOURCE}")
 
 pg = env.PostgresTestDB()
 
@@ -219,14 +220,14 @@ def RenderNetcdf(env, ncpath, bounds):
     return kmls + png
 
 kmldir += RenderNetcdf(env, hippopath, "172.236,-66.0481,187.508,-43.4905")
-kmldir += RenderNetcdf(env, 'HIPPO/HIPPO-5rf13.nc',
+kmldir += RenderNetcdf(env, 'HIPPO-5rf13.nc',
                        "-150.438,60.1847,-145.201,87.0433")
 
-kmldir += RenderNetcdf(env, 'WINTER/WINTERrf01.nc',
+kmldir += RenderNetcdf(env, 'WINTERrf01.nc',
                        "-76.7107,37.0417,-71.1004,41.42")
-kmldir += RenderNetcdf(env, 'WINTER/WINTERrf02.nc',
+kmldir += RenderNetcdf(env, 'WINTERrf02.nc',
                        "-85.2695,37.0526,-76.2321,40.2853")
-kmldir += RenderNetcdf(env, 'WINTER/WINTERrf03.nc',
+kmldir += RenderNetcdf(env, 'WINTERrf03.nc',
                        "-76.4838,37.0583,-67.9553,42.3435")
 
 # Generate all the .kml files as part of the test target, since they are
