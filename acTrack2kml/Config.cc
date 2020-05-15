@@ -39,16 +39,16 @@ defaultOnboardFlightDataURL()
 
 
 Config::
-Config() : 
+Config() :
   TimeStep(15),
   HeadingStep(1.0),
   path_method("headingstep"),
-  TAS_CutOff(20.0), 
-  ts_Freq(2000), 
-  barb_Freq(5), 
-  altMode("absolute"), 
+  TAS_CutOff(20.0),
+  ts_Freq(2000),
+  barb_Freq(5),
+  altMode("absolute"),
   compressKML(false),
-  convertToFeet(1.0), 
+  convertToFeet(1.0),
   onboard(false),
   verbose(0),
   showstats(false),
@@ -62,7 +62,7 @@ Config() :
 
 static const char* platform_names_array[] =
   {
-    "GV", 	// NCAR GV
+    "GV",	// NCAR GV
     "C130",	// NCAR C130
     "N42RF",	// NOAA AOC P3 - Kermit
     "N43RF",	// NOAA AOC P3 - Miss Piggy
@@ -74,6 +74,7 @@ static const char* platform_names_array[] =
     "WKA",	// Wyoming King Air
     "B146",	// UK BAE146
     "DLR"	// DLR Falcon
+    "LEAR"	// DLR Falcon
   };
 
 
@@ -83,7 +84,7 @@ getPlatformNames()
 {
   std::vector<std::string> names;
   const char** begin = platform_names_array;
-  const char** end = begin + 
+  const char** end = begin +
     sizeof(platform_names_array)/sizeof(platform_names_array[0]);
   std::copy(begin, end, std::back_inserter(names));
   return names;
@@ -96,7 +97,7 @@ setPlatform(const std::string& platname)
 {
   std::vector<std::string> names = getPlatformNames();
 
-  std::vector<std::string>::iterator it = 
+  std::vector<std::string>::iterator it =
     std::find(names.begin(), names.end(), platname);
 
   if (it != names.end())
@@ -213,7 +214,7 @@ fillDefaults()
     set_default(cfg.outputKML, cfg.flightDataDir + "/GE/real-time.kml");
     set_default(cfg.outputAnimatedKML,
 		cfg.flightDataDir + "/GE/animated-track.kml");
-    set_default(cfg.outputPositionKML, 
+    set_default(cfg.outputPositionKML,
 		cfg.flightDataDir + "/GE/current_pos.kml");
     set_default(cfg.outputPositionJSON, cfg.flightDataDir + "/position.json");
   }
@@ -224,7 +225,7 @@ fillDefaults()
  * The acTrack2kml code has always opened the postgresql database
  * connection with a connection string in this form:
  *
- *    sprintf(conn_str, "host='%s' dbname='%s' user ='ads'", 
+ *    sprintf(conn_str, "host='%s' dbname='%s' user ='ads'",
  *	    cfg.database_host.c_str(), cfg.dbname.c_str());
  *
  * Even though it looks like the host is being specified explicitly, in
@@ -253,7 +254,7 @@ verifyDatabaseHost()
     // be logged, and it means database_host must be non-empty in modes
     // where a database is required.
     char *p = getenv("PGHOST");
-    if (p) 
+    if (p)
     {
       database_host = p;
     }

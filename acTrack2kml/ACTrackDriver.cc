@@ -72,7 +72,7 @@ usage(const char *argv0)
   std::ostringstream buf;
   Config default_config;
 
-  buf 	<< 
+  buf	<<
     "Usage: Two forms, one for real-time use and the other to scan\n" <<
     "       a netCDF file in post-processing mode.\n\n" <<
     "Real-time onboard form:\n" <<
@@ -83,7 +83,7 @@ usage(const char *argv0)
     "   acTrack2kml infile.nc outfile.kml [position.json]\n\n" <<
     "Options:\n" <<
     "  -p platform       Platform name, valid values \n" <<
-    "                    (C130, DC8, GV, WKA, A10, N42RF, N43RF, B146).\n" <<
+    "                    (C130, DC8, GV, WKA, A10, N42RF, N43RF, B146, LEAR).\n" <<
     "  -h database_host  Database server host with data.\n" <<
     "  -o                Run onboard, changes URLs to onboard server.\n" <<
     "  -b barb_freq      Wind barb interval in minutes, default is 5.\n" <<
@@ -93,12 +93,12 @@ usage(const char *argv0)
     "                    generated paths.\n" <<
     "  --path algo       Specify track path algorithm.\n" <<
     "                    Default is 'timestep'. See below for details.\n" <<
-    "  -t ts_mins        Interval between time stamps in minutes,\n" << 
+    "  -t ts_mins        Interval between time stamps in minutes,\n" <<
     "                    default is 2000 (off).\n" <<
     "  -s timestep_secs  Time interval between track data points,\n" <<
     "                    in seconds, when the track path\n" <<
     "                    algorithm is 'timestep'.  The default is 15.\n" <<
-    "  -i update_secs    In real-time mode, seconds between track\n" << 
+    "  -i update_secs    In real-time mode, seconds between track\n" <<
     "                    updates.  Default is 30.\n" <<
     "  -j update_secs    In real-time mode, seconds between JSON position\n" <<
     "                    updates.  Default is 3.\n" <<
@@ -222,7 +222,7 @@ parseRunstring(int argc, char** argv)
 
     case 's':	// Time-step, default is 15 seconds.
       cfg.TimeStep = atoi(optarg);
-      if (cfg.TimeStep < 5) 
+      if (cfg.TimeStep < 5)
 	cfg.TimeStep = 5;
       break;
 
@@ -379,16 +379,16 @@ install_alarm_handler()
 // build up config from command-line options
 // create our AircraftTrack "model"
 // if database:
-// 	create database
-// 	connect to database
-// 	database loads variables and attributes
-//     while updating-in-real-time:
-// 	fill model
-// 	generate kml
+//	create database
+//	connect to database
+//	database loads variables and attributes
+//	while updating-in-real-time:
+//	fill model
+//	generate kml
 // else
-// 	open netcdf file
-// 	fill model
-// 	generate kml
+//	open netcdf file
+//	fill model
+//	generate kml
 
 
 
