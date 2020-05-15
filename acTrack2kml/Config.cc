@@ -73,7 +73,7 @@ static const char* platform_names_array[] =
     "A10",	// South Dakota School of Mines A-10.
     "WKA",	// Wyoming King Air
     "B146",	// UK BAE146
-    "DLR"	// DLR Falcon
+    "DLR",	// DLR Falcon
     "LEAR"	// DLR Falcon
   };
 
