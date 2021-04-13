@@ -144,7 +144,7 @@ dump(std::ostream& out)
     out << "   " << it->first << "='" << it->second << "'\n";
   }
   out << "Variable directory:\n";
-  for (dir_t::iterator di = _directory.begin(); 
+  for (dir_t::iterator di = _directory.begin();
        di != _directory.end(); ++di)
   {
     out << "   " << di->first << " (" << di->second.units << ")\n";
@@ -218,7 +218,7 @@ setupColumns()
   static const char* raf[] = { "ATX","DPXC","TASX","WSC","WDC","WIC" };
 
   if (cfg.verbose)
-    cerr << "Loading variables and global attributes from the database." 
+    cerr << "Loading variables and global attributes from the database."
 	 << endl;
   loadGlobalAttributes();
   if (cfg.verbose > 1)
@@ -247,7 +247,7 @@ setupColumns()
   addColumn(lat, LAT);
   addColumn(alt, ALT);
   string thdg = "THDG";
-  if (cfg.platform == "N42RF" || 
+  if (cfg.platform == "N42RF" ||
       cfg.platform == "N43RF" ||
       cfg.platform == "N49RF")
   {
@@ -282,7 +282,7 @@ openDatabase()
   {
     char conn_str[8192];
 
-    sprintf(conn_str, "host='%s' dbname='%s' user ='ads'", 
+    sprintf(conn_str, "host='%s' dbname='%s' user ='ads'",
 	    cfg.database_host.c_str(), cfg.dbname.c_str());
     if (cfg.verbose > 1)
     {
@@ -318,7 +318,6 @@ closeDatabase()
     db->_conn = 0;
   }
 }
-    
 
 
 /* -------------------------------------------------------------------- */
@@ -369,7 +368,7 @@ acDatabase::
 buildDataQueryString(AircraftTrack& track)
 {
   std::ostringstream query;
-  
+
   query << "SELECT ";
 
   for (int i = 0; i < int(columns.size()); ++i)
@@ -390,7 +389,7 @@ buildDataQueryString(AircraftTrack& track)
   query << " AND " << variable(LON)->name << " <> 0.0 ";
   query << " AND " << variable(LAT)->name
 	<< " <> " << AircraftTrack::missing_value;
-  query << " AND " << variable(LON)->name << " <> " 
+  query << " AND " << variable(LON)->name << " <> "
 	<< AircraftTrack::missing_value;
   // It does not hurt to always limit the number of points retrieved.
   query << " AND " << variable(TIME)->name << " > "
@@ -415,13 +414,13 @@ buildDataQueryString(AircraftTrack& track)
     {
       ptime latest = time_from_string(extractPQvalue<string>(res, 0, 0));
       ptime cutoff = latest - hours(12);
-      query << " AND " << variable(TIME)->name << " > " 
+      query << " AND " << variable(TIME)->name << " > "
 	    << AircraftTrack::formatTimestamp(cutoff,
 					      "'%Y-%m-%d %H:%M:%S'");
       if (cfg.verbose)
       {
 	cerr << "selecting only the most recent 12 hours, from "
-	     << AircraftTrack::formatTimestamp(cutoff) << " to " 
+	     << AircraftTrack::formatTimestamp(cutoff) << " to "
 	     << AircraftTrack::formatTimestamp(latest) << endl;
       }
     }
@@ -431,13 +430,13 @@ buildDataQueryString(AircraftTrack& track)
   if (track.npoints() > 0)
   {
     // 2014-01-28 23:54:15
-    query << " AND " << variable(TIME)->name << " > " 
+    query << " AND " << variable(TIME)->name << " > "
 	  << AircraftTrack::formatTimestamp(track.lastTime(),
 					    "'%Y-%m-%d %H:%M:%S'");
   }
   if (cfg.altMode == "absolute")
   {
-    query << " AND " << variable(ALT)->name << " <> " 
+    query << " AND " << variable(ALT)->name << " <> "
 	  << AircraftTrack::missing_value;
   }
   query << " ORDER BY " << variable(TIME)->name;
@@ -511,7 +510,7 @@ addResult(AircraftTrack& track, PGresult *res, int indx)
   if (ws != AircraftTrack::missing_value)
     ws *= 1.9438;	// convert to knots.
   track.ws.push_back(ws);
-  
+
   track.wd.push_back(getResult<float>(res, indx, WD));
   track.wi.push_back(getResult<float>(res, indx, WI));
 
@@ -546,7 +545,7 @@ fillAircraftTrack(AircraftTrack& track)
 					   "'%Y-%m-%d %H:%M:%S'")
 	 << endl;
   }
-  if (track.npoints() > 0 && 
+  if (track.npoints() > 0 &&
       track.lastTime() < second_clock::universal_time() - hours(12))
   {
     if (cfg.verbose)
@@ -632,7 +631,7 @@ updateTrack(AircraftTrack& track)
   ptime now = second_clock::universal_time();
   if (cfg.verbose)
   {
-    cerr << now << ": updating track from database " 
+    cerr << now << ": updating track from database "
 	 << cfg.database_host << "..." << endl;
   }
   if (openDatabase())
@@ -641,7 +640,7 @@ updateTrack(AircraftTrack& track)
     closeDatabase();
     if (rewrite)
     {
-      msg << "Track updated to " << track.npoints() 
+      msg << "Track updated to " << track.npoints()
 	  << " at " << now;
       track.setStatus(AircraftTrack::UPDATED, msg.str());
     }

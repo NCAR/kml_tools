@@ -10,7 +10,7 @@ using namespace boost::posix_time;
 
 
 AircraftTrack
-make_track(ptime first, int npoints, 
+make_track(ptime first, int npoints,
 	   PathPoint ll=PathPoint(40, -108),
 	   float scale=0.01)
 {
@@ -24,7 +24,7 @@ make_track(ptime first, int npoints,
     track.lon.push_back(ll.lon + i*scale);
     track.alt.push_back(5280 + i*10);
     track.thdg.push_back(i*0.5);
-    track.tas.push_back(i*bool(i < npoints/2) + 
+    track.tas.push_back(i*bool(i < npoints/2) +
 			(npoints - i)*bool(i >= npoints/2));
   }
   return track;
@@ -125,7 +125,7 @@ TEST (TrackPath, pathTest)
   path.clipTAS(5);
   EXPECT_EQ(path.begin, 5);
   EXPECT_EQ(path.end, 720-5+1);
-  
+
   // Going even further should leave an empty window.
   path.clipTAS(500);
   EXPECT_EQ(path.begin, 0);
@@ -154,7 +154,7 @@ TEST (TrackPath, pathTest)
   path.setClipping();
   path.generateByTimeStep(0);
   EXPECT_EQ(path.npoints(), path.track().npoints());
-    
+
   path.clipTimes(one + seconds(10), one + seconds(201));
   EXPECT_EQ(path.begin, 5);
   EXPECT_EQ(path.end, 100+1);
@@ -255,7 +255,7 @@ TEST (TrackPath, mergePath)
   EXPECT_EQ(lines.end, 10+1);
   lines.generateByHeading(2.0);
   // At this point lines contains: { 5, 9, 10 }
-  
+
   TrackPath labels(track);
   labels.addPoint(4);
   labels.addPoint(6);

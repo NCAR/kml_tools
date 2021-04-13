@@ -17,7 +17,7 @@ isMissingValue(double target)
 {
   if (isnan(target) || target == missing_value)
     return true;
-  
+
   return false;
 }
 

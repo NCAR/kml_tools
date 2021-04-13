@@ -241,7 +241,7 @@ generateByHeading(float diff)
     if (_track->getHeading(i, thdg))
     {
       heading_float heading = thdg;
-      if (i == 0 || 
+      if (i == 0 ||
 	  std::fabs(angle_difference(heading, last_heading)) >= diff ||
 	  i == end-1)
       {
@@ -333,7 +333,7 @@ getStats()
     AircraftTrack::value_type maxlat=minlat;
     AircraftTrack::longitude_type minlon=_track->lon[path[0]];
     AircraftTrack::longitude_type maxlon=minlon;
-    
+
     vector<int>::const_iterator it;
     for (it = path.begin(); it != path.end(); ++it)
     {
@@ -370,5 +370,4 @@ toStream(std::ostream& out) const
       << ne.lon << "," << ne.lat << ")";
   return out;
 }
-
 

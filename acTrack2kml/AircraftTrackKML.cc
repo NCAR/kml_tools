@@ -250,7 +250,7 @@ compressKML(const std::string& file)
   {
     kmzfile = kmzfile + ".kmz";
   }
-  
+
   std::string tfile = kmzfile + ".tmp";
   ostringstream command;
   command << "zip '" << tfile << "' '" << file << "'";
@@ -314,7 +314,7 @@ generatePaths()
     // Before clipping the main path for time, report the stats for
     // a whole path.
     coordsPath.generate();
-    std::cout << "KML coordinates path stats: " 
+    std::cout << "KML coordinates path stats: "
 	      << coordsPath.getStats() << "\n";
   }
   coordsPath.clipTimes(track.date[0], hourbreak);
@@ -339,7 +339,7 @@ writeCoordinates(std::ostream& out, size_t i, boost::posix_time::ptime end_ts)
 {
   AircraftTrack& track = *_track;
   TrackPath path(track);
- 
+
   // Set the clipping window according to the time region being rendered.
   path.clipTimes(track.date[i], end_ts);
 
@@ -348,7 +348,7 @@ writeCoordinates(std::ostream& out, size_t i, boost::posix_time::ptime end_ts)
   path.setSpecifier(cfg.path_method);
   path.generate();
   return writeCoordinates(out, path);
-}  
+}
 
 
 size_t
@@ -500,7 +500,7 @@ WriteGoogleEarthKML(const std::string& finalfile)
 	<< "   <styleUrl>#PM1</styleUrl>\n"
 	<< "   <Point>\n"
 	<< "    <altitudeMode>" << cfg.altMode << "</altitudeMode>\n"
-	<< "    <coordinates>" 
+	<< "    <coordinates>"
 	<< Coordinates(track, track.npoints()-1)
 	<< "</coordinates>\n"
 	<< "   </Point>\n"
@@ -745,18 +745,18 @@ startBubbleCDATA()
     << " Lat : " << track.lat[0]
     << " deg_N<br>Lon : " << track.lon[0] << " deg_E<br>";
   s.precision(0);
-  if (track.alt[0] != track.missing_value) 
+  if (track.alt[0] != track.missing_value)
     s << "Alt : " << track.alt[0] << " feet<br>";
   s.precision(2);
-  if (track.at[0] != track.missing_value) 
+  if (track.at[0] != track.missing_value)
     s << "Temp : " << track.at[0] << " C<br>";
-  if (track.dp[0] != track.missing_value) 
+  if (track.dp[0] != track.missing_value)
     s << "DP : " << track.dp[0] << " C<br>";
-  if (track.ws[0] != track.missing_value) 
+  if (track.ws[0] != track.missing_value)
     s << "WS : " << track.ws[0] << " knots<br>";
-  if (track.wd[0] != track.missing_value) 
+  if (track.wd[0] != track.missing_value)
     s << "WD : " << track.wd[0] << " degree_T<br>";
-  if (track.wi[0] != track.missing_value) 
+  if (track.wi[0] != track.missing_value)
     s << "WI : " << track.wi[0] << " m/s";
   s << "]]>";
   return s.str();
@@ -777,18 +777,18 @@ endBubbleCDATA()
 	<< " Lat : " << last(track.lat)
 	<< " deg_N<br>Lon : " << last(track.lon) << " deg_E<br>";
   e.precision(0);
-  if (last(track.alt) != track.missing_value) 
+  if (last(track.alt) != track.missing_value)
     e << "Alt : " << last(track.alt) << " feet<br>";
   e.precision(2);
-  if (last(track.at) != track.missing_value) 
+  if (last(track.at) != track.missing_value)
     e << "Temp : " << last(track.at) << " C<br>";
-  if (last(track.dp) != track.missing_value) 
+  if (last(track.dp) != track.missing_value)
     e << "DP : " << last(track.dp) << " C<br>";
-  if (last(track.ws) != track.missing_value) 
+  if (last(track.ws) != track.missing_value)
     e << "WS : " << last(track.ws) << " knots<br>";
-  if (last(track.wd) != track.missing_value) 
+  if (last(track.wd) != track.missing_value)
     e << "WD : " << last(track.wd) << " degree_T<br>";
-  if (last(track.wi) != track.missing_value) 
+  if (last(track.wi) != track.missing_value)
     e << "WI : " << last(track.wi) << " m/s";
   e << "]]>";
 
@@ -809,15 +809,15 @@ midBubbleCDATA(int i)
   if (track.alt[i] != track.missing_value)
     e << "Alt : " << track.alt[i] << " feet<br>";
   e.precision(2);
-  if (track.at[i] != track.missing_value) 
+  if (track.at[i] != track.missing_value)
     e << "Temp : " << track.at[i] << " C<br>";
-  if (track.dp[i] != track.missing_value) 
+  if (track.dp[i] != track.missing_value)
     e << "DP : " << track.dp[i] << " C<br>";
-  if (track.ws[i] != track.missing_value) 
+  if (track.ws[i] != track.missing_value)
     e << "WS : " << track.ws[i] << " knots<br>";
-  if (track.wd[i] != track.missing_value) 
+  if (track.wd[i] != track.missing_value)
     e << "WD : " << track.wd[i] << " degree_T<br>";
-  if (track.wi[i] != track.missing_value) 
+  if (track.wi[i] != track.missing_value)
     e << "WI : " << track.wi[i] << " m/s";
   e << "]]>";
 
@@ -951,8 +951,8 @@ std::ostream&
 AircraftTrackKML::Coordinates::asKML(std::ostream& out) const
 {
   // KML spec requires no spaces between tuples.
-  out << track.offsetLongitude(i) << "," 
-      << track.lat[i] << "," 
+  out << track.offsetLongitude(i) << ","
+      << track.lat[i] << ","
       << (int)track.alt[i];
   return out;
 }
