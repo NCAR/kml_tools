@@ -4,7 +4,7 @@
 # being called as part of a variant build because it does not install
 # anything or run any tests.
 
-env = Environment(tools=['default', 'netcdf', 'postgres_pq', 
+env = Environment(tools=['default', 'netcdfcxx', 'postgres_pq', 
                          'boost_date_time', 'actrack'])
 
 env.Append(CXXFLAGS='-g -Werror -Wall')

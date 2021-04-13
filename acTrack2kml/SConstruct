@@ -10,7 +10,7 @@ import re
 sys.path.append(os.path.abspath("../../caledit/site_scons"))
 import eol_scons
 
-env = Environment(tools=['default', 'netcdf', 'postgres_pq', 
+env = Environment(tools=['default', 'netcdfcxx', 'postgres_pq', 
                          'boost_date_time', 'postgres_testdb',
                          'prefixoptions', 'jlocal', 'testing'])
 
@@ -18,7 +18,7 @@ def actrack(env):
     # Tool to configure the library build.  The actrack library itself is
     # not included to make it possible to link against different build
     # variants.
-    env.Require(['netcdf', 'postgres_pq', 'boost_date_time'])
+    env.Require(['netcdfcxx', 'postgres_pq', 'boost_date_time'])
     if env.Dir('.').get_abspath().endswith('sanitized'):
         env.SanitizeAddress()
     elif env.Dir('.').get_abspath().endswith('clang'):
