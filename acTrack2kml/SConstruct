@@ -4,15 +4,27 @@ import os
 import sys
 import re
 
+from SCons.Script import Export, Environment, Alias, SConscript
+from SCons.Script import Builder, Mkdir, BoolVariable
+
 # This is for building in the RAF source tree.  When building standalone,
 # site_scons is checked out directly into this directory (or else into
 # ~/.scons/site_scons) and that takes precedence.
 sys.path.append(os.path.abspath("../../caledit/site_scons"))
 import eol_scons
 
-env = Environment(tools=['default', 'netcdfcxx', 'postgres_pq', 
+env = Environment(tools=['default', 'netcdfcxx', 'postgres_pq',
                          'boost_date_time', 'postgres_testdb',
                          'prefixoptions', 'jlocal', 'testing'])
+
+
+vars = eol_scons.GlobalVariables()
+vars.Add(BoolVariable('with_python', "Enable the python wrapper module.",
+                      False))
+vars.Update(env)
+
+build_python_module = env.get('with_python', False)
+
 
 def actrack(env):
     # Tool to configure the library build.  The actrack library itself is
@@ -24,6 +36,7 @@ def actrack(env):
     elif env.Dir('.').get_abspath().endswith('clang'):
         env['CC'] = os.environ.get('CC', env['CC'])
         env['CXX'] = os.environ.get('CXX', env['CXX'])
+
 
 Export('actrack')
 
@@ -40,19 +53,20 @@ rootenv = env
 # Python module
 # ----------------------------------------------------------------------------
 
-env = env.Clone()
-env.Append(LIBS=[libactrackpub])
-env.Require('boost_python')
-env.Require('actrack')
+if build_python_module:
+    env = env.Clone()
+    env.Append(LIBS=libactrack)
+    env.Require('actrack')
+    env.Require('boost_python')
 
-module = env.SharedLibrary(env.File('raf/actrack/_actrack.so'), 
-                           ['actrack_python.cc'])
-# I don't know why this Depends() is necessary, but the library does not
-# get rebuilt without it.  SCons may not realize that the static
-# libactrack.a is a LIBS dependency even though the target is a shared
-# library.
-env.Depends(module, libactrackpub)
-pysrcs = Split("raf/actrack/__init__.py")
+    module = env.SharedLibrary(env.File('raf/actrack/_actrack.so'),
+                               ['actrack_python.cc'])
+    # I don't know why this Depends() is necessary, but the library does not
+    # get rebuilt without it.  SCons may not realize that the static
+    # libactrack.a is a LIBS dependency even though the target is a shared
+    # library.
+    env.Depends(module, libactrackpub)
+    pysrcs = env.Split("raf/actrack/__init__.py")
 
 # ----------------------------------------------------------------------------
 # Testing
@@ -65,8 +79,8 @@ env['ACTRACKOPTS'] = '--path timestep'
 
 # Testing uses instrumented code, unless instrumenting not supported.
 if env.SanitizeSupported():
-    (libactrack, actrackkml, actrackx) = SConscript('SConscript', 
-                                                    variant_dir='sanitized', 
+    (libactrack, actrackkml, actrackx) = SConscript('SConscript',
+                                                    variant_dir='sanitized',
                                                     duplicate=1)
 
 # Clang analysis works by running the scons build under the scan-build
@@ -78,13 +92,14 @@ if env.SanitizeSupported():
 # rather than requiring the use of scan-build, but I think scan-build also
 # sets up other artifacts like the reports directory.
 if env.Detect('scan-build') and os.environ.get('CC', "").endswith('analyzer'):
-    (libactrack, actrackkml, actrackx) = SConscript('SConscript', 
-                                                    variant_dir='clang', 
+    (libactrack, actrackkml, actrackx) = SConscript('SConscript',
+                                                    variant_dir='clang',
                                                     duplicate=1)
 
 dfcache = env.DataFileCache()
 dfcache.setPrefix('rafdata:/scr/raf_data/test_data')
 dfcache.insertCachePath('~/Data/raf/test_data')
+
 
 # Generate KML from a netcdf file.
 def NetcdfKML(target, source, env):
@@ -98,10 +113,9 @@ def NetcdfKML(target, source, env):
 
 
 def kml_emitter(source, target, env):
-    ofile = str(env.File(target[0]))
-    if not env.has_key('ACTRACK2KML'):
+    if 'ACTRACK2KML' not in env:
         env['ACTRACK2KML'] = actrackkml[0].get_abspath()
-    return (target, source + [ env['ACTRACK2KML'] ])
+    return (target, source + [env['ACTRACK2KML']])
 
 
 env['BUILDERS']['NetcdfKML'] = Builder(action=NetcdfKML, emitter=kml_emitter)
@@ -125,23 +139,27 @@ gtests = tenv.Program('gtests', ["test_track.cc"])
 env.Alias('test', env.Command('gtest', gtests,
                               env.AsanFilter("${SOURCE.abspath}")))
 
-# test_actrack.py uses HIPPO-2rf06.nc, so make sure it is in the data file
-# cache and pass the path to it in DATA_DIR.
 env['ENV']['DATA_DIR'] = hippopath.dir.get_abspath()
-runtest = env.TestRun('pytests',
-                      ["raf/actrack/test_actrack.py"] + module + pysrcs +
-                      [hippopath], "py.test ${SOURCE}")
+
+if build_python_module:
+    # test_actrack.py uses HIPPO-2rf06.nc, so make sure it is in the data
+    # file cache and pass the path to it in DATA_DIR.
+    runtest = env.TestRun('pytests',
+                          ["raf/actrack/test_actrack.py"] + module + pysrcs +
+                          [hippopath], "py.test ${SOURCE}")
 
 pg = env.PostgresTestDB()
+
 
 # Generate KML output from a database SQL file.  The source is the SQL dump
 # and the target is the real-time.kml file.
 def database_kml_emitter(target, source, env):
     # Turn KMLOUTPUT into a file node so we can use .dir substitution with
     # it.
-    if env.has_key('KMLOUTPUT'):
+    if 'KMLOUTPUT' in env:
         env['KMLOUTPUTDIR'] = str(env.File("$KMLOUTPUT").get_dir())
     return target, ["${ACTRACK2KML}"] + source
+
 
 database_kml_builder = Builder(action=[
     pg.action_init,
@@ -159,8 +177,8 @@ database_kml_output_builder = Builder(action=[
     pg.action_destroy],
                                       emitter=database_kml_emitter)
 
-env.Append(BUILDERS = {'DatabaseRealtimeKML':database_kml_builder})
-env.Append(BUILDERS = {'DatabaseOutputKML':database_kml_output_builder})
+env.Append(BUILDERS={'DatabaseRealtimeKML': database_kml_builder})
+env.Append(BUILDERS={'DatabaseOutputKML': database_kml_output_builder})
 
 
 gvkml = env.DatabaseRealtimeKML("GV-actual/GE/real-time.kml",
@@ -176,12 +194,12 @@ env.Alias('test', env.Diff('testgv-kml',
 env.Alias('test', env.Diff('testgv-position',
                            ["GV-expected/position.json",
                             "GV-actual/position.json"]))
-env.DatabaseOutputKML('kml/C130-real-time.kml', 'sql/real-time-C130.sql', 
+env.DatabaseOutputKML('kml/C130-real-time.kml', 'sql/real-time-C130.sql',
                       AIRCRAFT='C130', KMLOUTPUT="kml/C130-")
 
 # The DLR test just makes sure it terminates and exits successfully.
 dlr = env.DatabaseOutputKML('kml/DLR-real-time.kml',
-                            'sql/real-time-DLR.sql', 
+                            'sql/real-time-DLR.sql',
                             AIRCRAFT='DLR', KMLOUTPUT='kml/DLR-')
 
 rf13kml = env.DatabaseOutputKML(['kml/WINTER-rf13-real-time-timestep.kml',
@@ -194,14 +212,16 @@ rf13kml = env.DatabaseOutputKML(['kml/WINTER-rf13-real-time-timestep.kml',
 kmldir = [dlr, rf13kml]
 
 # Render the whole of RF13.
-kmldir += env.Command('kml/WINTER-rf13.png', rf13kml, 
+kmldir += env.Command('kml/WINTER-rf13.png', rf13kml,
                       "./renderkml.py ${SOURCES} "
                       "-77.9957,28.9685,-74.2237,37.1555 ${TARGET}")
 
 # Render just the figure eight.
-kmldir += env.Command('kml/WINTER-rf13-loop.png', rf13kml, 
-                      "./renderkml.py ${SOURCES} -77.9825,34.07,-77.7403,34.1869 "
+kmldir += env.Command('kml/WINTER-rf13-loop.png', rf13kml,
+                      "./renderkml.py ${SOURCES} "
+                      "-77.9825,34.07,-77.7403,34.1869 "
                       "${TARGET}")
+
 
 def RenderNetcdf(env, ncpath, bounds):
     if isinstance(ncpath, type("")):
@@ -214,10 +234,12 @@ def RenderNetcdf(env, ncpath, bounds):
     kmls = [base + "-timestep.kml", base + "-headingstep.kml"]
     kmls = env.Command(kmls, [actrackx, ncpath], [
             Mkdir("kml"),
-            "${SOURCES[0].abspath} ${ACTRACKOPTS} ${SOURCES[1]} %s.kml" % (base)])
-    png = env.Command(base + '.png', kmls, 
+            "${SOURCES[0].abspath} ${ACTRACKOPTS} ${SOURCES[1]} %s.kml" %
+            (base)])
+    png = env.Command(base + '.png', kmls,
                       "./renderkml.py ${SOURCES} %s ${TARGET}" % (bounds))
     return kmls + png
+
 
 kmldir += RenderNetcdf(env, hippopath, "172.236,-66.0481,187.508,-43.4905")
 kmldir += RenderNetcdf(env, 'HIPPO-5rf13.nc',
@@ -234,14 +256,15 @@ kmldir += RenderNetcdf(env, 'WINTERrf03.nc',
 # quick.  The rendering (meaning the generation of all the .png files) is
 # only done if explicitly requested, such as with the 'render' alias.
 
-allkml = [kml for kml in kmldir if re.search('\.kml$', str(kml))]
+allkml = [kml for kml in kmldir if re.search(r'\.kml$', str(kml))]
 env.Alias('test', allkml)
 
 # Render a web page with all the WINTER tracks together.
-allwinter = [kml for kml in kmldir if re.search('WINTER.*\.kml$', str(kml))]
-kmldir += env.Alias('winter', env.Command('kml/WINTER.png', allwinter, 
-                                       "./renderkml.py ${SOURCES} -86,30,-72,45 "
-                                       "${TARGET}"))
+allwinter = [kml for kml in kmldir if re.search(r'WINTER.*\.kml$', str(kml))]
+kmldir += env.Alias('winter',
+                    env.Command('kml/WINTER.png', allwinter,
+                                r"./renderkml.py ${SOURCES} -86,30,-72,45 "
+                                r"${TARGET}"))
 
 if kmldir:
     env.Alias('render', kmldir)
@@ -254,7 +277,7 @@ for kml in allkml:
 
 # Generate html page for comparing plots.
 page = env.ImageComparisonPage()
-for png in [png for png in kmldir if re.search('\.png', str(png))]:
+for png in [png for png in kmldir if re.search(r'\.png', str(png))]:
     pngname = os.path.basename(str(png))
     page.addComparison("expected/"+pngname, str(png))
 
