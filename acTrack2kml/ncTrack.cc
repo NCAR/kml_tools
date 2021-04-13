@@ -165,11 +165,26 @@ fillAircraftTrack(AircraftTrack& track)
 
   attr.reset(tim_v->get_att("units"));
   struct tm tm;
-  strptime(array_to_string(attr->as_string(0)).c_str(),
-	   "seconds since %F %T +0000", &tm);
+  memset(&tm, 0, sizeof(tm));
+  string time_units = array_to_string(attr->as_string(0));
+  char* parsed = strptime(time_units.c_str(),
+                          "seconds since %Y-%m-%d %H:%M:%S +0000", &tm);
+  if (! parsed)
+  {
+    std::ostringstream msg;
+    msg << "could not parse basetime from units: " << time_units;
+    cerr << msg.str() << endl;
+    track.setStatus(AircraftTrack::ERROR, msg.str());
+    return;
+  }
   char tz[] = "TZ=UTC";
   putenv(tz);
   ptime basetime = from_time_t(mktime(&tm));
+  if (cfg.verbose > 1)
+  {
+    cerr << "from units '" << time_units << "', basetime: "
+         << track.formatTimestamp(basetime) << endl;
+  }
 
   size_t n = tim_vals->num();
   track.clear();
@@ -216,6 +231,7 @@ ncTrack::
 updateTrack(AircraftTrack& track, const std::string& ncpath)
 {
   std::ostringstream msg;
+  track.clearStatus();
   if (cfg.verbose)
   {
     cerr << "updating track from netcdf: " << ncpath << endl;
@@ -223,9 +239,12 @@ updateTrack(AircraftTrack& track, const std::string& ncpath)
   if (open(ncpath))
   {
     fillAircraftTrack(track);
-    msg << "Loaded track of " << track.npoints() << " points "
-	<< " from " << ncpath;
-    track.setStatus(AircraftTrack::UPDATED, msg.str());
+    if (track.ok())
+    {
+      msg << "Loaded track of " << track.npoints() << " points "
+          << " from " << ncpath;
+      track.setStatus(AircraftTrack::UPDATED, msg.str());
+    }
   }
   else
   {

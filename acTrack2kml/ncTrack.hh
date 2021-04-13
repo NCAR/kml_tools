@@ -30,9 +30,6 @@ public:
   void
   close();
 
-  void
-  fillAircraftTrack(AircraftTrack& track);
-
   /**
    * Open the given netcdf file at @p ncpath, call fillAircraftTrack(),
    * then set the status on the track accordingly.
@@ -41,6 +38,9 @@ public:
   updateTrack(AircraftTrack& track, const std::string& ncpath);
 
 private:
+
+  void
+  fillAircraftTrack(AircraftTrack& track);
 
   NcVar *
   getNetcdfVariable(const std::string& var_name);
