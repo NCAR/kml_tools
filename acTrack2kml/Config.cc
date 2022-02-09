@@ -70,11 +70,11 @@ static const char* platform_names_array[] =
     "DC8",	// NASA DC-8
     "WB57",	// NASA WB-57
     "GH",	// NASA Globalhawk
-    "A10",	// South Dakota School of Mines A-10.
     "WKA",	// Wyoming King Air
     "B146",	// UK BAE146
     "DLR",	// DLR Falcon
-    "LEAR"	// DLR Falcon
+    "LEAR",	// SPEC LEAR
+    "CONVAIR"	// 
   };
 
 
