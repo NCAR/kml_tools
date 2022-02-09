@@ -72,9 +72,9 @@ static const char* platform_names_array[] =
     "GH",	// NASA Globalhawk
     "WKA",	// Wyoming King Air
     "B146",	// UK BAE146
-    "DLR",	// DLR Falcon
     "LEAR",	// SPEC LEAR
-    "CONVAIR"	// 
+    "CONVAIR",	// 
+    "N762JT"	// 
   };
 
 

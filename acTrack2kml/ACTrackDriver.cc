@@ -71,6 +71,7 @@ usage(const char *argv0)
 {
   std::ostringstream buf;
   Config default_config;
+  std::vector<string> platformList = cfg.getPlatformNames();
 
   buf	<<
     "Usage: Two forms, one for real-time use and the other to scan\n" <<
@@ -83,7 +84,15 @@ usage(const char *argv0)
     "   acTrack2kml infile.nc outfile.kml [position.json]\n\n" <<
     "Options:\n" <<
     "  -p platform       Platform name, valid values \n" <<
-    "                    (C130, DC8, GV, WKA, A10, N42RF, N43RF, B146, LEAR).\n" <<
+    "              (";
+  for (size_t i = 0; i < platformList.size(); ++i)
+  {
+    buf << platformList[i];
+    if (i < platformList.size()-1) buf << ", ";
+  }
+
+  buf	<<
+    ").\n" <<
     "  -h database_host  Database server host with data.\n" <<
     "  -o                Run onboard, changes URLs to onboard server.\n" <<
     "  -b barb_freq      Wind barb interval in minutes, default is 5.\n" <<
