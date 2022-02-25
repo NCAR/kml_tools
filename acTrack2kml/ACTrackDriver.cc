@@ -144,7 +144,7 @@ usage(const char *argv0)
     "  --alt <alt>       Specify the altitude variable.\n" <<
     "This example selects GGLAT and GGLON from a netcdf file instead\n" <<
     "of LATC and LONC.\n" <<
-    "  acTrack2kml --lat=GGLAT --lon=GGLON infile.nc outfile.kml\n";
+    "  acTrack2kml --lat GGLAT --lon GGLON infile.nc outfile.kml\n";
 
   return buf.str();
 }
