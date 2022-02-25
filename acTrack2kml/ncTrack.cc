@@ -130,9 +130,17 @@ fillAircraftTrack(AircraftTrack& track)
   NcVar *atx_v = getNetcdfVariable("ATX");
   NcVar *dp_v = getNetcdfVariable("DPXC");
   NcVar *ws_v = getNetcdfVariable("WSC");
-  NcVar *wi_v = getNetcdfVariable("WIC");
   NcVar *wd_v = getNetcdfVariable("WDC");
   NcVar *thdg_v = getNetcdfVariable("THDG");
+
+  // WIX first, then fall back on WIC.
+  NcVar *wi_v;
+  string wi = "WIX";
+  if ((wi_v = file.get_var(wi.c_str())) == 0)
+  {
+    wi = "WIC";
+    wi_v = file.get_var(wi.c_str());
+  }
 
   // Pressure altitude is preferred.
   NcVar *alt_v;
