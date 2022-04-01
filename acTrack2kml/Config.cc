@@ -73,8 +73,9 @@ static const char* platform_names_array[] =
     "WKA",	// Wyoming King Air
     "B146",	// UK BAE146
     "LEAR",	// SPEC LEAR
-    "CONVAIR",	// 
+    "CONVAIR",	// Canada
     "N762JT"	// 
+    "VV256"	// NPS CIRPAS Twin Otter
   };
 
 
