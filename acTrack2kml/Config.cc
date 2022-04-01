@@ -74,7 +74,7 @@ static const char* platform_names_array[] =
     "B146",	// UK BAE146
     "LEAR",	// SPEC LEAR
     "CONVAIR",	// Canada
-    "N762JT"	// 
+    "N762JT",	// 
     "VV256"	// NPS CIRPAS Twin Otter
   };
 
