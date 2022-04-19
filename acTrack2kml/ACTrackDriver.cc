@@ -111,6 +111,10 @@ usage(const char *argv0)
     "                    updates.  Default is 30.\n" <<
     "  -j update_secs    In real-time mode, seconds between JSON position\n" <<
     "                    updates.  Default is 3.\n" <<
+    "  -g gap_hours      Time gap between flights.  When the time of the\n" <<
+    "                    last point in the track exceeds this value the track\n" <<
+    "                    the track is cleared.  This value used to avoid multiple\n" <<
+    "                    flights in the same kml.  Default is 12.\n" <<
     "  --once            Run once and exit, without looping to update.\n" <<
     "  -f path           Override flight_data output directory. Location\n" <<
     "                    of position.json and KML goes into <flight_dir>/GE.\n"
@@ -172,7 +176,7 @@ parseRunstring(int argc, char** argv)
       {0,          0, 0, 0 }
     };
 
-    opt_char = getopt_long(argc, argv, "p:h:b:s:t:i:j:f:u:ocv",
+    opt_char = getopt_long(argc, argv, "p:h:b:s:t:i:j:f:u:g:ocv",
 			   long_options, 0);
 
     if (opt_char == -1)

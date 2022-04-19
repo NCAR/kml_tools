@@ -47,6 +47,13 @@ public:
   float HeadingStep;
 
   /**
+   * Track gap.  Reset or clear track if last data point is this old.  Default
+   * is 12 hours, but small UAVs can do multiple flights in a day with a 1-2
+   * hour layover between flights.  Units are in hours.
+   */
+  int TimeBetweenFlights;
+
+  /**
    * For renderings like KML which select a subset of points to include in
    * the track, this can be used to select the algorithm for simplifying
    * the track.  The "timestep" method, the default, picks points every

@@ -546,11 +546,12 @@ fillAircraftTrack(AircraftTrack& track)
 	 << endl;
   }
   if (track.npoints() > 0 &&
-      track.lastTime() < second_clock::universal_time() - hours(12))
+      track.lastTime() < second_clock::universal_time() - hours(cfg.TimeBetweenFlights))
   {
     if (cfg.verbose)
     {
-      cerr << "Track more than 12 hours old, fetching variables again." << endl;
+      cerr << "Track more than " << cfg.TimeBetweenFlights
+           << " hours old, fetching variables again." << endl;
     }
     clearColumns();
   }
