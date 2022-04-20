@@ -105,16 +105,19 @@ usage(const char *argv0)
     "  -t ts_mins        Interval between time stamps in minutes,\n" <<
     "                    default is 2000 (off).\n" <<
     "  -s timestep_secs  Time interval between track data points,\n" <<
-    "                    in seconds, when the track path\n" <<
-    "                    algorithm is 'timestep'.  The default is 15.\n" <<
+    "                    in seconds, when the track path algorithm is\n" <<
+    "                    'timestep'.  The default is 15.\n" <<
     "  -i update_secs    In real-time mode, seconds between track\n" <<
     "                    updates.  Default is 30.\n" <<
     "  -j update_secs    In real-time mode, seconds between JSON position\n" <<
     "                    updates.  Default is 3.\n" <<
     "  -g gap_hours      Time gap between flights.  When the time of the\n" <<
     "                    last point in the track exceeds this value the track\n" <<
-    "                    the track is cleared.  This value used to avoid multiple\n" <<
-    "                    flights in the same kml.  Default is 12.\n" <<
+    "                    is cleared.  This value is used to avoid multiple\n" <<
+    "                    flights in the same kml in case the db was not cleared.\n" <<
+    "                    Default is 12.\n" <<
+    "  -l track_length   How many of the most recent minutes of the track to\n" <<
+    "                    display.  Default is the whole track.\n" <<
     "  --once            Run once and exit, without looping to update.\n" <<
     "  -f path           Override flight_data output directory. Location\n" <<
     "                    of position.json and KML goes into <flight_dir>/GE.\n"
@@ -176,7 +179,7 @@ parseRunstring(int argc, char** argv)
       {0,          0, 0, 0 }
     };
 
-    opt_char = getopt_long(argc, argv, "p:h:b:s:t:i:j:f:u:g:ocv",
+    opt_char = getopt_long(argc, argv, "p:h:b:s:t:i:j:f:u:g:l:ocv",
 			   long_options, 0);
 
     if (opt_char == -1)
@@ -229,8 +232,33 @@ parseRunstring(int argc, char** argv)
       }
       break;
 
+    case 'b':	// Windbarb Frequency, default is 5 minutes.
+      cfg.barb_Freq = atoi(optarg);
+      if (cfg.barb_Freq < 1) cfg.barb_Freq = 2000; // 24 hours, basically turn off.
+      break;
+
+    case 'c':	// Clamp to ground
+      cfg.altMode = "clampToGround";
+      break;
+
+    case 'g':	// Time between flights.  Ignore anything older than....
+      cfg.TimeBetweenFlights = atoi(optarg);
+      if (cfg.TimeBetweenFlights < 1)
+	cfg.TimeBetweenFlights = 1;
+      break;
+
     case 'h':	// PGHOST over-ride.
       cfg.database_host = optarg;
+      break;
+
+    case 'l':	// Track length
+      cfg.TrackLength = atoi(optarg);
+      if (cfg.TrackLength < 5)
+	cfg.TrackLength = 5;
+      break;
+
+    case 'o':	// onboard.  Modify some defaults if this is set.
+      cfg.onboard = true;
       break;
 
     case 's':	// Time-step, default is 15 seconds.
@@ -239,22 +267,9 @@ parseRunstring(int argc, char** argv)
 	cfg.TimeStep = 5;
       break;
 
-    case 'b':	// Windbarb Frequency, default is 5 minutes.
-      cfg.barb_Freq = atoi(optarg);
-      if (cfg.barb_Freq < 1) cfg.barb_Freq = 2000; // 24 hours, basically turn off.
-      break;
-
     case 't':	// Time Stamp Frequency, default is 20 minutes.
       cfg.ts_Freq = atoi(optarg);
       if (cfg.ts_Freq < 1) cfg.ts_Freq = 2000; // 24 hours, basically turn off.
-      break;
-
-    case 'o':	// onboard.  Modify some defaults if this is set.
-      cfg.onboard = true;
-      break;
-
-    case 'c':	// Clamp to ground
-      cfg.altMode = "clampToGround";
       break;
 
     case 'v':

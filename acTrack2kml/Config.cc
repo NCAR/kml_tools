@@ -43,6 +43,7 @@ Config() :
   TimeStep(15),
   HeadingStep(1.0),
   TimeBetweenFlights(12),
+  TrackLength(0),	// 0 means all data.
   path_method("headingstep"),
   TAS_CutOff(20.0),
   ts_Freq(2000),
@@ -281,6 +282,7 @@ dump()
   out << "      Time step (secs): " << TimeStep << "\n";
   out << "    Heading step (deg): " << HeadingStep << "\n";
   out << "    Flight gap (hours): " << TimeBetweenFlights << "\n";
+  out << "Track Length (minutes): " << TrackLength << "\n";
   out << "            TAS cutoff: " << TAS_CutOff << "\n";
   out << " Time stamps (minutes): " << ts_Freq << "\n";
   out << "  Wind Barbs (minutes): " << barb_Freq << "\n";

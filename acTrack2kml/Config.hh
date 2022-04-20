@@ -54,6 +54,12 @@ public:
   int TimeBetweenFlights;
 
   /**
+   * Track length.  Default is the whole thing.  This lets specify say just
+   * the last 30 minutes.  Units are in minutes.
+   */
+  int TrackLength;
+
+  /**
    * For renderings like KML which select a subset of points to include in
    * the track, this can be used to select the algorithm for simplifying
    * the track.  The "timestep" method, the default, picks points every
