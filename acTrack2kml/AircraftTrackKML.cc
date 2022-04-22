@@ -317,7 +317,17 @@ generatePaths()
     std::cout << "KML coordinates path stats: "
 	      << coordsPath.getStats() << "\n";
   }
-  coordsPath.clipTimes(track.date[0], hourbreak);
+
+  if (cfg.TrackLength)
+  {
+    ptime end = last(track.date) - minutes(cfg.TrackLength);
+    hourbreak = last(track.date) - minutes(cfg.TrackLength*.66);
+
+    coordsPath.clipTimes(end, hourbreak);
+  }
+  else
+    coordsPath.clipTimes(track.date[0], hourbreak);
+
   coordsPath.generate();
 
   // The last hour of the track, beginning where the first path left off.
