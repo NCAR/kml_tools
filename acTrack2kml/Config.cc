@@ -77,7 +77,21 @@ static const char* platform_names_array[] =
     "LEAR",	// SPEC LEAR
     "CONVAIR",	// Canada
     "N762JT",	// 
-    "VV256"	// NPS CIRPAS Twin Otter
+    "VV256",	// NPS CIRPAS Twin Otter
+    "TORUS_UAS_LF1",
+    "TORUS_UAS_LF2",
+    "TORUS_UAS_RF",
+    "TORUS_UAS_NI",
+    "TORUS_COMET1",
+    "TORUS_COMET2",
+    "TORUS_COMET3",
+    "TORUS_PROBE1",
+    "TORUS_PROBE2",
+    "TORUS_PROBE3",
+    "TORUS_WIND1",
+    "TORUS_WIND2",
+    "TORUS_LIDAR",
+    "TORUS_FF"
   };
 
 
