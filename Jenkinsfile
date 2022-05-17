@@ -8,7 +8,7 @@ pipeline {
       steps {
         sh 'git submodule update --init --recursive'
         sh 'cd acTrack2kml'
-        sh 'scons'
+        sh 'scons install'
       }
     }
 
