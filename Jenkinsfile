@@ -13,8 +13,8 @@ pipeline {
 
   }
   post {
-    success {
-      mail(to: 'cjw@ucar.edu cdewerd@ucar.edu taylort@ucar.edu', subject: 'kml_tools build successful', body: 'kml_tools build successful')
+    failure {
+      mail(to: 'cjw@ucar.edu cdewerd@ucar.edu taylort@ucar.edu', subject: 'kml_tools build failed', body: 'kml_tools build failed')
     }
   }
   options {
