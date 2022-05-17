@@ -3,16 +3,18 @@ pipeline {
   triggers {
     pollSCM('H H * * *')
   }
-  stages {
+    stages {
     stage('Build') {
       steps {
+        sh 'git submodule update --init --recursive'
         sh 'scons'
       }
     }
+
   }
   post {
-    succcess {
-      mail(body: 'kml_tools build successful', subject:'kml_tools build successful', to: 'cjw@ucar.edu janine@ucar.edu cdewerd@ucar.edu taylort@ucar.edu')
+    success {
+      mail(to: 'cjw@ucar.edu cdewerd@ucar.edu taylort@ucar.edu', subject: 'kml_tools build successful', body: 'kml_tools build successful')
     }
   }
   options {
