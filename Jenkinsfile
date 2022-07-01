@@ -14,7 +14,10 @@ pipeline {
   }
   post {
     failure {
-      mail(to: 'cjw@ucar.edu cdewerd@ucar.edu taylort@ucar.edu', subject: 'kml_tools build failed', body: 'kml_tools build failed')
+      emailext to: "cjw@ucar.edu janine@ucar.edu cdewerd@ucar.edu taylort@ucar.edu",
+      subject: "Jenkinsfile kml_tools build failed",
+      body: "See console output attached",
+      attachLog: true
     }
   }
   options {
