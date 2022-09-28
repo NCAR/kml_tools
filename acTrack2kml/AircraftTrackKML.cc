@@ -321,7 +321,7 @@ generatePaths()
   if (cfg.TrackLength)
   {
     ptime end = last(track.date) - minutes(cfg.TrackLength);
-    hourbreak = last(track.date) - minutes(cfg.TrackLength*.66);
+    hourbreak = last(track.date) - minutes((long)(cfg.TrackLength*.66));
 
     coordsPath.clipTimes(end, hourbreak);
   }
