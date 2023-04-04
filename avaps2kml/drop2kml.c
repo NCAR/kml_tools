@@ -8,9 +8,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-static char *ground = "www.eol.ucar.edu";
-static char *onboard = "acserver.raf.ucar.edu";
-static char *webHost = 0;
+// 2023 canonical url prefixes are shown as comments,
+// but we prefer just the urlpath to allow serving
+// from other hosts like catalog.eol
+static char *ground = ""; // "https://field.eol.ucar.edu";
+static char *onboard = ""; // "http://acserver.raf.ucar.edu";
+static char *webPrefix = 0;
 
 void outputKML(float lat, float lon, float wd, float ws)
 {
@@ -46,7 +49,7 @@ void outputKML(float lat, float lon, float wd, float ws)
   printf("        <scale>3</scale>\n");
 //  printf("        <heading>0</heading>\n");
   printf("        <Icon>\n");
-  printf("          <href>http://%s/flight_data/display/windbarbs/%03d/wb_%03d_%03d.png</href>\n", webHost, iws, iws, (int)wd);
+  printf("          <href>%s/flight_data/display/windbarbs/%03d/wb_%03d_%03d.png</href>\n", webPrefix, iws, iws, (int)wd);
   printf("        </Icon>\n");
 //  printf("        <gx:headingMode>worldNorth</gx:headingMode>\n");
   printf("      </IconStyle>\n");
@@ -67,9 +70,9 @@ int main(int argc, char *argv[])
 
   gethostname(buffer, 1000);
   if (strncmp(buffer, "acserver", 8) == 0)
-    webHost = onboard;
+    webPrefix = onboard;
   else
-    webHost = ground;
+    webPrefix = ground;
 
   if (argc > 1)
     ps_cutoff = atof(argv[1]);

@@ -15,12 +15,24 @@ using std::string;
 // Output directories for .xml & .kml files.  Ground.
 static const string grnd_flightDataDir = "/net/www/docs/flight_data";
 static const string grnd_flightDataURL =
-  "http://www.eol.ucar.edu/flight_data";
+  // use simple urlpath to serve images from same host as the kml is served from,
+  // mediates against unannounced and flaky host/cname changes,
+  // allows catalog-maps to serve its own images
+  "/flight_data";
+
+  // OLDER: "http://www.eol.ucar.edu/flight_data";
+  // OLD: "https://www.eol.ucar.edu/flight_data";
+  // NO, NOT SUPPORTED, WILL DISAPPEAR: "https://archive.eol.ucar.edu/flight_data";
+  // NEW: "https://field.eol.ucar.edu/flight_data";
+  // NO, DON'T BE FOOLED: "https://flight.eol.ucar.edu/flight_data";
 
 // Output directories for .xml & .kml files.  Onboard.
 static const string onboard_flightDataDir = "/var/www/html/flight_data";
 static const string onboard_flightDataURL =
-  "http://acserver.raf.ucar.edu/flight_data";
+  // use simple urlpath to serve images from same host as the kml is served from,
+  // allows viewing via wired network hostnames like hyper.raf-guest.ucar.edu
+  "/flight_data";
+  // CANONICAL: "http://acserver.raf.ucar.edu/flight_data";
 
 
 string
