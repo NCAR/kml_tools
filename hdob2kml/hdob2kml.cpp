@@ -84,7 +84,7 @@ void WriteGoogleEarthKMZ(std::string & file)
         "  <IconStyle>\n" <<
         "   <scale>0.5</scale>\n" <<
         "   <Icon>\n" <<
-        "    <href>https://field.eol.ucar.edu/flight_data/images/red.png</href>\n" <<
+        "    <href>https://field.eol.ucar.edu/flight_data/display/red.png</href>\n" <<
         "   </Icon>\n" <<
         "  </IconStyle>\n" <<
         " </Style>\n" <<
@@ -92,7 +92,7 @@ void WriteGoogleEarthKMZ(std::string & file)
         "  <IconStyle>\n" <<
         "   <scale>0.5</scale>\n" <<
         "   <Icon>\n" <<
-        "    <href>https://field.eol.ucar.edu/flight_data/images/white.png</href>\n" <<
+        "    <href>https://field.eol.ucar.edu/flight_data/display/white.png</href>\n" <<
         "   </Icon>\n" <<
         "  </IconStyle>\n" <<
         " </Style>\n" <<
