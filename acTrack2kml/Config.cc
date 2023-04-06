@@ -15,7 +15,7 @@ using std::string;
 // Output directories for .xml & .kml files.  Ground.
 static const string grnd_flightDataDir = "/net/www/docs/flight_data";
 static const string grnd_flightDataURL =
-  // use simple urlpath to serve images from same host as the kml is served from,
+  // use relative urlpath to serve images from same host as the kml is served from,
   // mediates against unannounced and flaky host/cname changes,
   // allows catalog-maps to serve its own images
   "/flight_data";
@@ -29,10 +29,16 @@ static const string grnd_flightDataURL =
 // Output directories for .xml & .kml files.  Onboard.
 static const string onboard_flightDataDir = "/var/www/html/flight_data";
 static const string onboard_flightDataURL =
-  // use simple urlpath to serve images from same host as the kml is served from,
+  // use relative urlpath to serve images from same host as the kml is served from,
   // allows viewing via wired network hostnames like hyper.raf-guest.ucar.edu
   "/flight_data";
   // CANONICAL: "http://acserver.raf.ucar.edu/flight_data";
+
+/**
+ * KML's from netCDF files for post flight distribution need an absolute URL
+ * for image files (e.g. wind barbs).
+ */
+static const string absolute_flightDataURL = "https://field.eol.ucar.edu/flight_data";
 
 
 string
@@ -174,6 +180,8 @@ fillDefaults()
 
   if (! cfg.netCDFinputFile.empty())
   {
+    set_default(cfg.flightDataURL, absolute_flightDataURL);
+
     // This is not real-time, so there is no more real-time setup.
   }
   else if (cfg.onboard)
