@@ -11,7 +11,7 @@
 #include <map>
 #include <vector>
 
-class db_private_t;
+struct db_private_t;
 struct pg_result;
 
 /*

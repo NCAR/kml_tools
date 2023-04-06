@@ -68,7 +68,7 @@ writePositionJSON(AircraftTrack& track, const std::string& filename)
       std::cerr << "writing " << filename << "..." << std::endl;
     if ( (fp = fopen(filename.c_str(), "w+")) )
     {
-      if (fprintf(fp, content.c_str()) < 0)
+      if (fprintf(fp, "%s", content.c_str()) < 0)
       {
 	errnum = errno;
       }
