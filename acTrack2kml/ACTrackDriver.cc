@@ -101,7 +101,7 @@ usage(const char *argv0)
     "  --showstats       Report statistics about the track and any\n" <<
     "                    generated paths.\n" <<
     "  --path algo       Specify track path algorithm.\n" <<
-    "                    Default is 'timestep'. See below for details.\n" <<
+    "                    Default is 'headingstep'. See below for details.\n" <<
     "  -t ts_mins        Interval between time stamps in minutes,\n" <<
     "                    default is 2000 (off).\n" <<
     "  -s timestep_secs  Time interval between track data points,\n" <<
