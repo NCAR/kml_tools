@@ -190,7 +190,7 @@ WriteWindBarbsKML_Folder(ofstream& googleEarth)
     int i = path.path[ip];
     int iws = track.barbSpeed(track.ws[i]);	// make sure to pass in knots.
     int iwd = (int)track.wd[i];
-    char url[8192];
+    char url[1024];
 
     if (iws < 0) iws = 0;
     if (iws > 200) iws = 200;	// we only have barbs to 200 Knots.
@@ -198,7 +198,7 @@ WriteWindBarbsKML_Folder(ofstream& googleEarth)
     // Force wind direction into 0-360.
     heading_degrees<int>::normalize(&iwd, &iwd+1);
 
-    sprintf(url, "<href>%s/display/windbarbs/%03d/wb_%03d_%03d.png</href>\n",
+    snprintf(url, 1024, "<href>%s/display/windbarbs/%03d/wb_%03d_%03d.png</href>\n",
 	    cfg.flightDataURL.c_str(), iws, iws, iwd);
 
     struct tm tm = to_tm(track.date[i]);

@@ -37,11 +37,11 @@ formatPositionJSON(AircraftTrack& track, int i)
   longitude_double lon = track.lon[i];
 
   char output[1024] = "";
-  sprintf(output,
+  snprintf(output, 1024,
 	  "{\"timestamp\":\"%s\",\"alt\":\"%.1f\",\"lat\":\"%f\","
 	  "\"head\":\"%s\",\"declination\":\"0\",\"lon\":\"%f\"}",
 	  track.formatTimestamp(track.date[i], "%Y-%m-%d %H:%M:%S").c_str(),
-	  track.alt[i], lat, heading_double(thdg).format("%.1f").c_str(), 
+	  track.alt[i], lat, heading_double(thdg).format("%.1f").c_str(),
 	  lon.value());
   return output;
 }

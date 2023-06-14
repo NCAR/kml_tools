@@ -280,9 +280,9 @@ openDatabase()
 {
   if (! db->_conn)
   {
-    char conn_str[8192];
+    char conn_str[1024];
 
-    sprintf(conn_str, "host='%s' dbname='%s' user ='ads'",
+    snprintf(conn_str, 1024, "host='%s' dbname='%s' user ='ads'",
 	    cfg.database_host.c_str(), cfg.dbname.c_str());
     if (cfg.verbose > 1)
     {
