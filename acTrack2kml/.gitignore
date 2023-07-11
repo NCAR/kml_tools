@@ -1,0 +1,11 @@
+.sconf_temp
+.sconsign.dblite
+config.log
+*.o
+/acTrack2kml
+/actrackx
+/libactrack.a
+/gtests
+/kml
+/sanitized
+/GV-actual
