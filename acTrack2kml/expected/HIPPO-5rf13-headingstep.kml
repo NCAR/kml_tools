@@ -6,7 +6,7 @@
   <IconStyle>
    <scale>0.5</scale>
    <Icon>
-    <href>http://www.eol.ucar.edu/flight_data/display/red.png</href>
+    <href>https://field.eol.ucar.edu/flight_data/display/red.png</href>
    </Icon>
   </IconStyle>
  </Style>
@@ -14,7 +14,7 @@
   <IconStyle>
    <scale>0.5</scale>
    <Icon>
-    <href>http://www.eol.ucar.edu/flight_data/display/white.png</href>
+    <href>https://field.eol.ucar.edu/flight_data/display/white.png</href>
    </Icon>
   </IconStyle>
  </Style>
@@ -920,7 +920,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_147.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_147.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -935,7 +935,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_134.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_134.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -950,7 +950,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_184.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_184.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -965,7 +965,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_167.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_167.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -980,7 +980,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_145.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_145.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -995,7 +995,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_147.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_147.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1010,7 +1010,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_169.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_169.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1025,7 +1025,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_238.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_238.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1040,7 +1040,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_217.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_217.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1055,7 +1055,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_207.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_207.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1070,7 +1070,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_188.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_188.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1085,7 +1085,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_190.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_190.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1100,7 +1100,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_192.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_192.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1115,7 +1115,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_225.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_225.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1130,7 +1130,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_240.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_240.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1145,7 +1145,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_238.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_238.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1160,7 +1160,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_241.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_241.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1175,7 +1175,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/040/wb_040_224.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/040/wb_040_224.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1190,7 +1190,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_234.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_234.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1205,7 +1205,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_232.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_232.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1220,7 +1220,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_218.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_218.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1235,7 +1235,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_238.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_238.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1250,7 +1250,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_250.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_250.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1265,7 +1265,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_240.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_240.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1280,7 +1280,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/040/wb_040_232.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/040/wb_040_232.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1295,7 +1295,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/050/wb_050_229.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/050/wb_050_229.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1310,7 +1310,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/065/wb_065_225.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/065/wb_065_225.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1325,7 +1325,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/070/wb_070_222.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/070/wb_070_222.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1340,7 +1340,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/055/wb_055_222.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/055/wb_055_222.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1355,7 +1355,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_220.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_220.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1370,7 +1370,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_192.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_192.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1385,7 +1385,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_205.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_205.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1400,7 +1400,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_225.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_225.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1415,7 +1415,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_199.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_199.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1430,7 +1430,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/040/wb_040_204.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/040/wb_040_204.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1445,7 +1445,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/045/wb_045_199.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/045/wb_045_199.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1460,7 +1460,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/050/wb_050_195.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/050/wb_050_195.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1475,7 +1475,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/040/wb_040_199.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/040/wb_040_199.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1490,7 +1490,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/035/wb_035_195.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/035/wb_035_195.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1505,7 +1505,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_256.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_256.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1520,7 +1520,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_230.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_230.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1535,7 +1535,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_215.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_215.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1550,7 +1550,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_223.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_223.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1565,7 +1565,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_222.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_222.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1580,7 +1580,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_198.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_198.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1595,7 +1595,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_207.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_207.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1610,7 +1610,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_203.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_203.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1625,7 +1625,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_214.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_214.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1640,7 +1640,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_233.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_233.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1655,7 +1655,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_244.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_244.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1670,7 +1670,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_253.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_253.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1685,7 +1685,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_256.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_256.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1700,7 +1700,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_265.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_265.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1715,7 +1715,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_241.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_241.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1730,7 +1730,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_243.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_243.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1745,7 +1745,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_224.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_224.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1760,7 +1760,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_090.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_090.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1775,7 +1775,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_035.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_035.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1790,7 +1790,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_251.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_251.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1805,7 +1805,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_241.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_241.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1820,7 +1820,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_243.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_243.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1835,7 +1835,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/035/wb_035_236.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/035/wb_035_236.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1850,7 +1850,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_229.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_229.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1865,7 +1865,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_242.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_242.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1880,7 +1880,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_247.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_247.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1895,7 +1895,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_195.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_195.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1910,7 +1910,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_229.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_229.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1925,7 +1925,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_224.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/005/wb_005_224.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1940,7 +1940,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_216.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_216.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1955,7 +1955,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_219.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_219.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1970,7 +1970,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_233.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_233.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -1985,7 +1985,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_213.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_213.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2000,7 +2000,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_244.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/015/wb_015_244.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2015,7 +2015,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_239.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_239.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2030,7 +2030,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_234.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_234.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2045,7 +2045,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_233.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_233.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2060,7 +2060,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_236.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_236.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2075,7 +2075,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_235.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_235.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2090,7 +2090,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_247.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_247.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2105,7 +2105,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_241.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_241.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2120,7 +2120,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_241.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_241.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2135,7 +2135,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_251.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_251.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2150,7 +2150,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_236.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_236.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2165,7 +2165,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_236.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_236.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2180,7 +2180,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_238.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_238.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2195,7 +2195,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_243.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_243.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2210,7 +2210,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_240.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_240.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2225,7 +2225,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_243.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_243.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2240,7 +2240,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_242.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_242.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2255,7 +2255,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_255.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_255.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2270,7 +2270,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_234.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_234.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2285,7 +2285,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_250.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_250.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2300,7 +2300,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_242.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_242.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2315,7 +2315,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_241.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/025/wb_025_241.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2330,7 +2330,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_243.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_243.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2345,7 +2345,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_237.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_237.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2360,7 +2360,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_193.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_193.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2375,7 +2375,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_187.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_187.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2390,7 +2390,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_204.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/030/wb_030_204.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2405,7 +2405,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_172.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/020/wb_020_172.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2420,7 +2420,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_156.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/010/wb_010_156.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2435,7 +2435,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/000/wb_000_020.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/000/wb_000_020.png</href>
 </Icon>
     </IconStyle>
    </Style>
@@ -2450,7 +2450,7 @@
    <Style>
     <IconStyle>
      <scale>3</scale>
-     <Icon><href>http://www.eol.ucar.edu/flight_data/display/windbarbs/000/wb_000_000.png</href>
+     <Icon><href>https://field.eol.ucar.edu/flight_data/display/windbarbs/000/wb_000_000.png</href>
 </Icon>
     </IconStyle>
    </Style>
