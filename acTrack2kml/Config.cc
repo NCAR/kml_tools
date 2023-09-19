@@ -96,6 +96,7 @@ static const char* platform_names_array[] =
     "CONVAIR",	// Canada
     "N762JT",	// 
     "VV256",	// NPS CIRPAS Twin Otter
+    "DLR",	// DLR Falcon.  Keep for tests
     "TORUS_UAS_LF1",
     "TORUS_UAS_LF2",
     "TORUS_UAS_RF",
