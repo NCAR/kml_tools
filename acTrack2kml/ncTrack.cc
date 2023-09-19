@@ -72,7 +72,7 @@ open(const std::string& fileName)
 
   if (file.is_valid() == false)
   {
-    cerr << "Failed to open, or invalid netCDF file." << endl;
+    cerr << "Failed to open, or invalid netCDF file [" << fileName.c_str() << "]." << endl;
     close();
     return false;
   }
