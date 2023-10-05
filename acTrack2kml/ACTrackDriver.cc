@@ -311,7 +311,7 @@ parseRunstring(int argc, char** argv)
       break;
 
     case '?':
-      cerr << usage(argv[0]);
+      cout << usage(argv[0]);
       return 1;
       break;
     }
@@ -473,7 +473,7 @@ parseConfig(int argc, char *argv[])
   store_args(argc, argv);
   if (argc == 1 || strstr(argv[1], "usage") || strstr(argv[1], "help"))
   {
-    cerr << usage(argv[0]);
+    cout << usage(argv[0]);
     return 1;
   }
 
