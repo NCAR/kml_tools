@@ -1,7 +1,11 @@
 pipeline {
-  agent any
+  agent {
+     node {
+        label 'CentOS9'
+        }
+  }
   triggers {
-    pollSCM('H H * * *')
+    pollSCM('H/30 6-20 * * *')
   }
     stages {
     stage('Build') {
