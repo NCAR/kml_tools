@@ -21,6 +21,7 @@ env = Environment(tools=['default', 'netcdfcxx', 'postgres_pq',
 vars = eol_scons.GlobalVariables()
 vars.Add(BoolVariable('with_python', "Enable the python wrapper module.",
                       False))
+vars.Add('PYTHON', "Path to python executable.", "/usr/bin/python")
 vars.Update(env)
 
 build_python_module = env.get('with_python', False)
@@ -213,12 +214,12 @@ kmldir = [dlr, rf13kml]
 
 # Render the whole of RF13.
 kmldir += env.Command('kml/WINTER-rf13.png', rf13kml,
-                      "./renderkml.py ${SOURCES} "
+                      "${PYTHON} ./renderkml.py ${SOURCES} "
                       "-77.9957,28.9685,-74.2237,37.1555 ${TARGET}")
 
 # Render just the figure eight.
 kmldir += env.Command('kml/WINTER-rf13-loop.png', rf13kml,
-                      "./renderkml.py ${SOURCES} "
+                      "${PYTHON} ./renderkml.py ${SOURCES} "
                       "-77.9825,34.07,-77.7403,34.1869 "
                       "${TARGET}")
 
@@ -237,7 +238,7 @@ def RenderNetcdf(env, ncpath, bounds):
             "${SOURCES[0].abspath} ${ACTRACKOPTS} ${SOURCES[1]} %s.kml" %
             (base)])
     png = env.Command(base + '.png', kmls,
-                      "./renderkml.py ${SOURCES} %s ${TARGET}" % (bounds))
+                      "${PYTHON} ./renderkml.py ${SOURCES} %s ${TARGET}" % (bounds))
     return kmls + png
 
 
@@ -263,7 +264,7 @@ env.Alias('test', allkml)
 allwinter = [kml for kml in kmldir if re.search(r'WINTER.*\.kml$', str(kml))]
 kmldir += env.Alias('winter',
                     env.Command('kml/WINTER.png', allwinter,
-                                r"./renderkml.py ${SOURCES} -86,30,-72,45 "
+                                r"${PYTHON} ./renderkml.py ${SOURCES} -86,30,-72,45 "
                                 r"${TARGET}"))
 
 if kmldir:
