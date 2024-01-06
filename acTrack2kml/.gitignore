@@ -9,3 +9,6 @@ config.log
 /kml
 /sanitized
 /GV-actual
+/tracks.html
+/flight_data/flight_data.js
+/config.py
