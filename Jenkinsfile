@@ -14,6 +14,12 @@ pipeline {
         sh 'scons -C acTrack2kml'
       }
     }
+    stage('Test') {
+      steps {
+        sh 'git submodule update --init --recursive'
+        sh 'scons -C acTrack2kml test'
+      }
+    }
 
   }
   post {
