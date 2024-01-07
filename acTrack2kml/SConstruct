@@ -3,6 +3,7 @@
 import os
 import sys
 import re
+from pathlib import Path
 
 from SCons.Script import Export, Environment, Alias, SConscript
 from SCons.Script import Builder, Mkdir, BoolVariable
@@ -21,6 +22,7 @@ env = Environment(tools=['default', 'netcdfcxx', 'postgres_pq',
 vars = eol_scons.GlobalVariables()
 vars.Add(BoolVariable('with_python', "Enable the python wrapper module.",
                       False))
+vars.Add('PYTHON', "Path to python executable.", "python3")
 vars.Update(env)
 
 build_python_module = env.get('with_python', False)
@@ -78,10 +80,10 @@ env = Environment(tools=['default', 'actrack', 'postgres_testdb', 'testing',
 env['ACTRACKOPTS'] = '--path timestep'
 
 # Testing uses instrumented code, unless instrumenting not supported.
-if env.SanitizeSupported():
+if hasattr(env, 'SanitizeAddress'):
     (libactrack, actrackkml, actrackx) = SConscript('SConscript',
                                                     variant_dir='sanitized',
-                                                    duplicate=1)
+                                                    duplicate=0)
 
 # Clang analysis works by running the scons build under the scan-build
 # program, which replaces the CC and CXX environment variables with the
@@ -109,7 +111,7 @@ def NetcdfKML(target, source, env):
     if len(target) > 1 and str(target[1]).endswith('.json'):
         jfile = str(env.File(target[1]))
     cmd = "${ACTRACK2KML} ${ACTRACKOPTS} %s %s %s" % (ifile, ofile, jfile)
-    env.Execute(env.AsanFilter(cmd))
+    env.Execute(cmd)
 
 
 def kml_emitter(source, target, env):
@@ -132,14 +134,26 @@ env.Alias('test', env.Diff([ejson, ajson]))
 env.AlwaysBuild(akml)
 
 tenv = Environment(tools=['default', 'actrack', 'testing', 'gtest_main'])
-tenv.SanitizeAddress()
+if hasattr(tenv, 'SanitizeAddress'):
+    tenv.SanitizeAddress()
 tenv.Append(LIBS=libactrack)
 gtests = tenv.Program('gtests', ["test_track.cc"])
 
-env.Alias('test', env.Command('gtest', gtests,
-                              env.AsanFilter("${SOURCE.abspath}")))
+env.Alias('test', env.Command('gtest', gtests, "${SOURCE.abspath}"))
 
 env['ENV']['DATA_DIR'] = hippopath.dir.get_abspath()
+
+# renderkml uses selenium WebDriver, which must be able to find
+# selenium-manager, so make sure the location of the python executable is on
+# the path, on the assumption that selenium and selenium-manager have been
+# installed alongside python in a Conda or Mamba environment.  Also, since
+# apparently being on the PATH wasn't quite enough, hardcode the path to
+# selenium-manager in the SE_MANAGER_PATH environment variable.
+python = env.get('PYTHON')
+if '/' in python:
+    pybin = Path(python).parent.resolve()
+    env.PrependENVPath('PATH', pybin)
+    env['ENV']['SE_MANAGER_PATH'] = pybin.joinpath('selenium-manager')
 
 if build_python_module:
     # test_actrack.py uses HIPPO-2rf06.nc, so make sure it is in the data
@@ -213,12 +227,12 @@ kmldir = [dlr, rf13kml]
 
 # Render the whole of RF13.
 kmldir += env.Command('kml/WINTER-rf13.png', rf13kml,
-                      "./renderkml.py ${SOURCES} "
+                      "${PYTHON} ./renderkml.py ${SOURCES} "
                       "-77.9957,28.9685,-74.2237,37.1555 ${TARGET}")
 
 # Render just the figure eight.
 kmldir += env.Command('kml/WINTER-rf13-loop.png', rf13kml,
-                      "./renderkml.py ${SOURCES} "
+                      "${PYTHON} ./renderkml.py ${SOURCES} "
                       "-77.9825,34.07,-77.7403,34.1869 "
                       "${TARGET}")
 
@@ -237,7 +251,8 @@ def RenderNetcdf(env, ncpath, bounds):
             "${SOURCES[0].abspath} ${ACTRACKOPTS} ${SOURCES[1]} %s.kml" %
             (base)])
     png = env.Command(base + '.png', kmls,
-                      "./renderkml.py ${SOURCES} %s ${TARGET}" % (bounds))
+                      "${PYTHON} ./renderkml.py ${SOURCES} %s ${TARGET}" %
+                      (bounds))
     return kmls + png
 
 
@@ -261,10 +276,10 @@ env.Alias('test', allkml)
 
 # Render a web page with all the WINTER tracks together.
 allwinter = [kml for kml in kmldir if re.search(r'WINTER.*\.kml$', str(kml))]
-kmldir += env.Alias('winter',
-                    env.Command('kml/WINTER.png', allwinter,
-                                r"./renderkml.py ${SOURCES} -86,30,-72,45 "
-                                r"${TARGET}"))
+winter = env.Command('kml/WINTER.png', allwinter,
+                     r"${PYTHON} ./renderkml.py ${SOURCES} -86,30,-72,45 "
+                     r"${TARGET}")
+kmldir += env.Alias('winter', winter)
 
 if kmldir:
     env.Alias('render', kmldir)
