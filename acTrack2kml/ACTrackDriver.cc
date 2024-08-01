@@ -176,6 +176,7 @@ parseRunstring(int argc, char** argv)
       {"color",    required_argument,  0,  '6' },
       {"showstats",0,                  0,  '7' },
       {"output",   required_argument,  0,  '8' },
+      {"ground",   0,                  0,  '9' },
       {0,          0, 0, 0 }
     };
 
@@ -222,6 +223,10 @@ parseRunstring(int argc, char** argv)
 
     case '8':
       cfg.outputPrefix = optarg;
+      break;
+
+    case '9':	// ground based platforms, disable TAS anything.
+      cfg.TAS_CutOff = 0.0;
       break;
 
     case 'p':	// platform selection, used to select dbname
