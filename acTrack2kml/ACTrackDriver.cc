@@ -227,6 +227,7 @@ parseRunstring(int argc, char** argv)
 
     case '9':	// ground based platforms, disable TAS anything.
       cfg.TAS_CutOff = 0.0;
+      cfg.altMode = "clampToGround";
       break;
 
     case 'p':	// platform selection, used to select dbname
