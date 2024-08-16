@@ -86,6 +86,7 @@ static const char* platform_names_array[] =
     "C130",	// NCAR C130
     "N42RF",	// NOAA AOC P3 - Kermit
     "N43RF",	// NOAA AOC P3 - Miss Piggy
+    "N46RF",	// NOAA Twin Otter
     "N49RF",	// NOAA AOC G4
     "DC8",	// NASA DC-8
     "WB57",	// NASA WB-57
