@@ -56,6 +56,7 @@ void
 TrackPath::
 clipTAS(float cutoff)
 {
+  if (cutoff == 0.0) return;
   setClipping();
   for (begin = 0; begin < _track->npoints(); ++begin)
   {
