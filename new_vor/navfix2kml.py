@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import simplekml
 import argparse
-nav_fix = pd.read_csv('VOR_data_20250123/FIX_BASE.csv')
+nav_fix = pd.read_csv('FAA_data_20250123/FIX_BASE.csv')
 alt_dict = {'low':'ENROUTE LOW', 'high':'ENROUTE HIGH'}
 
 def dms_to_decimal(degrees, minutes, seconds, hemisphere):
@@ -46,7 +46,7 @@ def main():
     parser.add_argument('lon_max', type=float, help='Maximum longitude')
     args = parser.parse_args()
 
-    nav_fix = pd.read_csv('VOR_data_20250123/FIX_BASE.csv')
+    nav_fix = pd.read_csv('FAA_data_20250123/FIX_BASE.csv')
     low_fix = simplekml.Kml()
     low_fix.document.name = 'GPS Fix Low'
     write_fix_kml(low_fix, 'low', nav_fix, args.lat_min, args.lat_max, args.lon_min, args.lon_max)
