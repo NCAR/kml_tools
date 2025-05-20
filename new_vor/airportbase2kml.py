@@ -28,18 +28,18 @@ def write_approach_fix_kml(kml, nav_fix, lat_min, lat_max, lon_min, lon_max):
         if lat_min <= lat <= lat_max and lon_min <= lon <= lon_max:
             # Check if ICAO_ID exists and is not empty/NaN
             if 'ICAO_ID' in row and pd.notna(row['ICAO_ID']) and row['ICAO_ID'] != '':
-                icao_info = f"ICAO: YES - {row['ICAO_ID']}"
+                icao_info = f"ICAO ID: {row['ICAO_ID']}"
             else:
-                icao_info = "ICAO: NO"
+                continue
             # Create description with procedure types highlighted
             description = (
-                f"Airport Code: {row['ARPT_ID']}<br>"
+                #f"Airport Code: {row['ARPT_ID']}<br>"
                 f"{icao_info}<br>"
                 f"Location: {row['CITY']}, {row['STATE_CODE']}<br>"
             )
             
             # Create the point
-            pnt = kml.newpoint(name=row['ARPT_ID'], coords=[(lon, lat)])
+            pnt = kml.newpoint(name=row['ICAO_ID'], coords=[(lon, lat)])
             pnt.description = description
             
             # Apply the single style to all points
