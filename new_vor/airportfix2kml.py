@@ -1,7 +1,10 @@
+import os
 import pandas as pd
 import numpy as np
 import simplekml
 import argparse
+
+KML_OUTPUT_DIR = 'kmls'
 
 def dms_to_decimal(degrees, minutes, seconds, hemisphere):
     decimal = degrees + minutes / 60 + seconds / 3600
@@ -49,7 +52,7 @@ def main():
     args = parser.parse_args()
 
     # Read the navigation fix data
-    nav_fix = pd.read_csv('FAA_data_20250123/FIX_BASE.csv')
+    nav_fix = pd.read_csv('latest_data/FIX_BASE.csv')
     
     # Create a single KML file for all approach fixes
     approach_fixes = simplekml.Kml()
@@ -59,8 +62,10 @@ def main():
     write_approach_fix_kml(approach_fixes, nav_fix, args.lat_min, args.lat_max, args.lon_min, args.lon_max)
     
     # Save the KML file
-    approach_fixes.save('approach_fixes.kml')
-    print(f"Created KML file with SID, STAR, and IAP fixes within the specified boundaries.")
+    os.makedirs(KML_OUTPUT_DIR, exist_ok=True)
+    output_path = os.path.join(KML_OUTPUT_DIR, 'approach_fixes.kml')
+    approach_fixes.save(output_path)
+    print(f"Created KML file with SID, STAR, and IAP fixes within the specified boundaries: {output_path}")
 
 if __name__ == "__main__":
     main()
