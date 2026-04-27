@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import numpy as np
 import simplekml
-import argparse
 
 KML_OUTPUT_DIR = 'kmls'
 
@@ -13,26 +12,30 @@ def dms_to_decimal(degrees, minutes, seconds, hemisphere):
     return decimal
 
 
-def _make_red_circle_style(scale=1.0):
+def _make_red_circle_style(scale=1.0, label_scale=0):
+    """Build a red placemark_circle style. label_scale=0 hides the name label
+    next to the icon (the name still appears in the popup balloon on click);
+    a positive value makes the label visible at the given scale (1.0 = default)."""
     style = simplekml.Style()
     style.iconstyle.color = simplekml.Color.red
     style.iconstyle.scale = scale
     style.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png'
+    style.labelstyle.scale = label_scale
     return style
 
 
-def write_icao_airports(container, airports, lat_min, lat_max, lon_min, lon_max):
-    """Write airports that have an ICAO ID using full-size red circles."""
+def write_icao_airports(container, airports):
+    """Write airports that have an ICAO ID using full-size red circles. The
+    ICAO identifier is hidden by default (the label is too dense at the global
+    zoom level) and shows in the popup balloon when the placemark is clicked."""
     style = _make_red_circle_style(scale=1.0)
 
     for _, row in airports.iterrows():
-        lat = dms_to_decimal(row['LAT_DEG'], row['LAT_MIN'], row['LAT_SEC'], row['LAT_HEMIS'])
-        lon = dms_to_decimal(row['LONG_DEG'], row['LONG_MIN'], row['LONG_SEC'], row['LONG_HEMIS'])
-
-        if not (lat_min <= lat <= lat_max and lon_min <= lon <= lon_max):
-            continue
         if not ('ICAO_ID' in row and pd.notna(row['ICAO_ID']) and row['ICAO_ID'] != ''):
             continue
+
+        lat = dms_to_decimal(row['LAT_DEG'], row['LAT_MIN'], row['LAT_SEC'], row['LAT_HEMIS'])
+        lon = dms_to_decimal(row['LONG_DEG'], row['LONG_MIN'], row['LONG_SEC'], row['LONG_HEMIS'])
 
         description = (
             f"ICAO ID: {row['ICAO_ID']}<br>"
@@ -43,19 +46,17 @@ def write_icao_airports(container, airports, lat_min, lat_max, lon_min, lon_max)
         pnt.style = style
 
 
-def write_smaller_airports(container, airports, lat_min, lat_max, lon_min, lon_max):
+def write_smaller_airports(container, airports):
     """Write airports without an ICAO ID using a slightly smaller red circle so
     they're visually distinguishable from the larger ICAO-coded fields."""
     style = _make_red_circle_style(scale=0.7)
 
     for _, row in airports.iterrows():
-        lat = dms_to_decimal(row['LAT_DEG'], row['LAT_MIN'], row['LAT_SEC'], row['LAT_HEMIS'])
-        lon = dms_to_decimal(row['LONG_DEG'], row['LONG_MIN'], row['LONG_SEC'], row['LONG_HEMIS'])
-
-        if not (lat_min <= lat <= lat_max and lon_min <= lon <= lon_max):
-            continue
         if 'ICAO_ID' in row and pd.notna(row['ICAO_ID']) and row['ICAO_ID'] != '':
             continue  # handled by write_icao_airports
+
+        lat = dms_to_decimal(row['LAT_DEG'], row['LAT_MIN'], row['LAT_SEC'], row['LAT_HEMIS'])
+        lon = dms_to_decimal(row['LONG_DEG'], row['LONG_MIN'], row['LONG_SEC'], row['LONG_HEMIS'])
 
         # FAA airport identifier (e.g. "0J0") - the only airport-side ID these have.
         arpt_id = row['ARPT_ID'] if pd.notna(row['ARPT_ID']) else ''
@@ -75,13 +76,6 @@ def write_smaller_airports(container, airports, lat_min, lat_max, lon_min, lon_m
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Generate KML file for airports (with and without ICAO IDs).')
-    parser.add_argument('lat_min', type=float, help='Minimum latitude')
-    parser.add_argument('lat_max', type=float, help='Maximum latitude')
-    parser.add_argument('lon_min', type=float, help='Minimum longitude')
-    parser.add_argument('lon_max', type=float, help='Maximum longitude')
-    args = parser.parse_args()
-
     # Read the airport data
     airports = pd.read_csv('latest_data/APT_BASE.csv', low_memory=False)
 
@@ -93,14 +87,14 @@ def main():
     icao_folder = kml.newfolder(name='Airports with ICAO ID')
     smaller_folder = kml.newfolder(name='Smaller Airports (no ICAO ID)')
 
-    write_icao_airports(icao_folder, airports, args.lat_min, args.lat_max, args.lon_min, args.lon_max)
-    write_smaller_airports(smaller_folder, airports, args.lat_min, args.lat_max, args.lon_min, args.lon_max)
+    write_icao_airports(icao_folder, airports)
+    write_smaller_airports(smaller_folder, airports)
 
     # Save the KML file
     os.makedirs(KML_OUTPUT_DIR, exist_ok=True)
     output_path = os.path.join(KML_OUTPUT_DIR, 'airport.kml')
     kml.save(output_path)
-    print(f"Created KML file with airports in the specified boundaries: {output_path}")
+    print(f"Created KML file with all airports: {output_path}")
 
 
 if __name__ == "__main__":

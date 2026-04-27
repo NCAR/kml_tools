@@ -17,8 +17,13 @@ def dms_to_decimal(degrees, minutes, seconds, direction):
 def write_kml(container, height, vor):
     yellow_style = simplekml.Style()
     yellow_style.iconstyle.color = simplekml.Color.yellow
-    yellow_style.iconstyle.scale = 1.0
+    # 0.7 matches the "smaller airports" scale in airportbase2kml.py; ICAO
+    # airports stay at the default 1.0 so they remain visually prominent.
+    yellow_style.iconstyle.scale = 0.7
     yellow_style.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png'
+    # Hide the name label next to the icon by default; the name still shows in
+    # the popup balloon when the placemark is clicked.
+    yellow_style.labelstyle.scale = 0
 
     df = vor[vor['ALT_CODE'].isin(alt_dict[height])]
     for index, row in df.iterrows():

@@ -98,7 +98,7 @@ def main():
     )
     default_inputs = [
         os.path.join(KML_OUTPUT_DIR, name)
-        for name in ('vor_stations.kml', 'gps_fixes.kml', 'airport.kml', 'approach_fixes.kml')
+        for name in ('vor_stations.kml', 'gps_fixes.kml', 'airport.kml')
     ]
     default_output = os.path.join(KML_OUTPUT_DIR, 'all_nav_points.kml')
     parser.add_argument(

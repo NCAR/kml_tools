@@ -18,6 +18,9 @@ def write_fix_kml(container, height, nav_fix, lat_min, lat_max, lon_min, lon_max
     blue_style.iconstyle.color = simplekml.Color.blue
     blue_style.iconstyle.scale = 1.0
     blue_style.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png'
+    # Hide the name label next to the icon by default; the name still shows in
+    # the popup balloon when the placemark is clicked.
+    blue_style.labelstyle.scale = 0
 
     df = nav_fix[nav_fix['CHARTS'].str.contains(alt_dict[height], na=False)]
     for index, row in df.iterrows():
