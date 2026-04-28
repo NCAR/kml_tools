@@ -5,6 +5,22 @@ import simplekml
 
 KML_OUTPUT_DIR = 'kmls'
 
+# APT_BASE.csv SITE_TYPE_CODE values to drop from the output:
+#   H = heliport
+#   U = ultralight
+#   G = gliderport
+#   B = balloonport
+#   C = seaplane base
+# (Only fixed-wing airports, code 'A', are kept.)
+EXCLUDED_SITE_TYPE_CODES = {'H', 'U', 'G', 'B', 'C'}
+
+# Drop airports without an ICAO ID whose FACILITY_USE_CODE is in this set.
+# 'PR' is "private use" (closed to the general public); these are mostly the
+# 4-character ARPT_IDs like "AL03" and "8AL3" and add a lot of clutter without
+# being useful as visual references. Set to an empty set to keep them.
+EXCLUDED_SMALL_FACILITY_USE_CODES = {'PR'}
+
+
 def dms_to_decimal(degrees, minutes, seconds, hemisphere):
     decimal = degrees + minutes / 60 + seconds / 3600
     if hemisphere in ['S', 'W']:
@@ -31,6 +47,8 @@ def write_icao_airports(container, airports):
     style = _make_red_circle_style(scale=1.0)
 
     for _, row in airports.iterrows():
+        if row.get('SITE_TYPE_CODE') in EXCLUDED_SITE_TYPE_CODES:
+            continue
         if not ('ICAO_ID' in row and pd.notna(row['ICAO_ID']) and row['ICAO_ID'] != ''):
             continue
 
@@ -52,8 +70,12 @@ def write_smaller_airports(container, airports):
     style = _make_red_circle_style(scale=0.7)
 
     for _, row in airports.iterrows():
+        if row.get('SITE_TYPE_CODE') in EXCLUDED_SITE_TYPE_CODES:
+            continue
         if 'ICAO_ID' in row and pd.notna(row['ICAO_ID']) and row['ICAO_ID'] != '':
             continue  # handled by write_icao_airports
+        if row.get('FACILITY_USE_CODE') in EXCLUDED_SMALL_FACILITY_USE_CODES:
+            continue
 
         lat = dms_to_decimal(row['LAT_DEG'], row['LAT_MIN'], row['LAT_SEC'], row['LAT_HEMIS'])
         lon = dms_to_decimal(row['LONG_DEG'], row['LONG_MIN'], row['LONG_SEC'], row['LONG_HEMIS'])
