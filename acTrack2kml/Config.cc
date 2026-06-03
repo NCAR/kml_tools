@@ -91,6 +91,7 @@ static const char* platform_names_array[] =
     "DC8",	// NASA DC-8
     "WB57",	// NASA WB-57
     "GH",	// NASA Globalhawk
+    "N806NA",   // NASA ER-2
     "WKA",	// Wyoming King Air
     "B146",	// UK BAE146
     "LEAR",	// SPEC LEAR
