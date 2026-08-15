@@ -202,7 +202,8 @@ fillDefaults()
 
       // On the plane PGHOST is always set, so we must preempt it to pull
       // from the ground database.
-      set_default(cfg.database_host, "eol-rt-data.eol.ucar.edu");
+      //set_default(cfg.database_host, "eol-rt-data.eol.ucar.edu");
+      set_default(cfg.database_host, "128.117.43.122");
     }
     else
     {
