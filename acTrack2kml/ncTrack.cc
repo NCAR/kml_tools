@@ -187,8 +187,10 @@ fillAircraftTrack(AircraftTrack& track)
   struct tm tm;
   memset(&tm, 0, sizeof(tm));
   string time_units = array_to_string(attr->as_string(0));
-  char* parsed = strptime(time_units.c_str(),
-                          "seconds since %Y-%m-%d %H:%M:%S +0000", &tm);
+
+  attr.reset(tim_v->get_att("strptime_format"));
+  string units_format = array_to_string(attr->as_string(0));
+  char* parsed = strptime(time_units.c_str(), units_format.c_str(), &tm);
   if (! parsed)
   {
     std::ostringstream msg;
