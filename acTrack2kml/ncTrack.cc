@@ -98,7 +98,7 @@ fillAircraftTrack(AircraftTrack& track)
     projInfo.projectName = array_to_string(attr->as_string(0));
   else
   {
-    attr.reset(file.get_att("Project"));
+    attr.reset(file.get_att("ProjectName"));
     if (attr)
       projInfo.projectName = array_to_string(attr->as_string(0));
   }
@@ -110,7 +110,7 @@ fillAircraftTrack(AircraftTrack& track)
   {
     attr.reset(file.get_att("Platform"));
     if (attr)
-      projInfo.projectName = array_to_string(attr->as_string(0));
+      projInfo.platform = array_to_string(attr->as_string(0));
   }
 
   attr.reset(file.get_att("landmarks"));
